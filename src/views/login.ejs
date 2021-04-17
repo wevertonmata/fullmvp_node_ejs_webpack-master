@@ -1,0 +1,56 @@
+<%- include('includes/head'); %>
+<%- include('includes/nav'); %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-8 my-3">
+      <h1 class="text-center my-3">Login/Register</h1>
+      <p class="text-center lead">Faça login ou crie sua conta abaixo</p> 
+
+      <%- include('includes/messages'); %> 
+
+      <div class="row">
+        <div class="col-lg">
+          <h4 class="login">Faça seu cadastro</h4>
+          <p>Se você ainda não tem conta, preencha o formulário</p>
+          <form class="form-cadastro" action="/login/register" method="POST">
+            <input type="hidden" name="_csrf" value=<%= csrfToken %> >
+            <div class="form-group">
+              <label for="exampleInputEmail1">Seu e-mail</label>
+              <input name="email" type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="E-mail...">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Sua senha</label>
+              <input name="password" type="password" class="form-control" id="exampleInputPassword2" placeholder="Senha...">
+            </div>
+            <button type="submit" class="btn btn-primary my-3">Cadastre-se</button>
+          </form>
+        </div>
+
+        <div class="col-lg">
+          <h4 class="registro">Faça seu login</h4>
+          <p>Preencha o formulário, com dados da sua conta</p>
+          <form class="form-login" action="/login/login" method="POST">
+            <input type="hidden" name="_csrf" value=<%= csrfToken %> >
+            <div class="form-group">
+              <label for="exampleInputEmail1">Seu e-mail</label>
+              <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail...">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Sua senha</label>
+              <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha...">
+            </div>
+            <button type="submit" class="btn btn-primary my-3">Enviar</button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+<%- include('includes/footer') %>
